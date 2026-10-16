@@ -4,6 +4,9 @@ services:
     image: portfolio-pocketbase:0.40.5
     container_name: pocketbase
     restart: unless-stopped
+    environment:
+      - PB_SUPERUSER_EMAIL=${PB_SUPERUSER_EMAIL:-}
+      - PB_SUPERUSER_PASSWORD=${PB_SUPERUSER_PASSWORD:-}
     volumes:
       - pb_data:/pb/pb_data
     healthcheck:
