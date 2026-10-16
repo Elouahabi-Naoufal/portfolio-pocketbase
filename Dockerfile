@@ -9,4 +9,7 @@ RUN unzip /tmp/pb.zip -d /pb/ && rm /tmp/pb.zip && chmod +x /pb/pocketbase
 
 EXPOSE 8090
 
-CMD ["/pb/pocketbase", "serve", "--http=0.0.0.0:8090"]
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+CMD ["/entrypoint.sh"]
